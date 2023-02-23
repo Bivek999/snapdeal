@@ -1,0 +1,11 @@
+.second-nav {
+  display: flex;
+  flex-direction: row;
+  background-color: red;
+}
+
+.second-nav .snap-logo img {
+  height: 50px;
+  width: 160px;
+  margin: 10px;
+}

@@ -1,0 +1,25 @@
+.list-parent{
+    display: flex;
+    flex-direction: column;
+    float: left;
+    background-color: white;
+    justify-content: flex-start;
+}
+.list-parent .tabs-btn .buton{
+    border-bottom: 1px solid black;
+    border-radius: 10px;
+    text-transform: capitalize;
+    text-decoration: none;
+    margin-top: 10px;
+}
+.list-parent .select-order{
+    font-size: 30px;
+}
+.list-parent .tabs-btn{
+    display: flex;
+    flex-direction: row;
+    flex-flow: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    cursor: pointer;
+}

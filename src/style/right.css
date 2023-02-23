@@ -1,0 +1,10 @@
+.right-side{
+    display: flex;
+    flex-direction: column;
+    background-color: green;
+    height: 90vh;
+    margin-right: 30px;
+    float: right;
+    margin-top: 20px;
+    border-radius: 20px;
+}
