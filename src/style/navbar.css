@@ -1,0 +1,24 @@
+.nav-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(215, 31, 31);
+    align-items: center;
+    color: white;
+}
+
+.nav-bar .nav-left-side{
+    justify-content: flex-start;
+    margin-left: 4rem;
+}
+
+
+.nav-bar .nav-right-side{
+    justify-content: flex-end;
+    margin-right: 4rem;
+}
+
+.nav-bar .nav-right-side a,p{
+    margin: 2px 20px;
+
+}

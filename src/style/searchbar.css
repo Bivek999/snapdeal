@@ -1,0 +1,36 @@
+.second-nav {
+  display: flex;
+  flex-direction: row;
+  background-color: red;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.second-nav .snap-logo img {
+  height: 50px;
+  width: 160px;
+  margin: 10px;
+}
+
+.second-nav .input-search{
+  padding: 10px;
+  font-size: 20px;
+  
+  display: flex;
+  flex-direction: row;
+}
+
+.second-nav .input-search .magnifine{
+  background-color: black;
+  color: white;
+  height: 36px;
+  width: 80px;   
+  /* margin-bottom: 6.35px; */
+}
+
+
+/* .second-nav .nav2{
+  margin-left: 300px;
+  align-items: center;
+  justify-content: center;
+} */

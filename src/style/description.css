@@ -1,0 +1,59 @@
+.descriptions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+    margin: 30px;
+
+}
+
+.descriptions .img-left .main-img{
+    height: 300px;
+    width: 400px;
+}
+
+.descriptions .img-left .sort-img{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: 80px;
+    margin-top: 20px;
+}
+
+/* .descriptions .img-left .sort-img img{
+    height: 50px;
+    width: 80px;
+} */
+
+.descriptions .describe-right{
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+}
+.descriptions .describe-right .rating-style{
+    display: flex;
+}
+.descriptions .describe-right .rating-style span{
+    justify-content: flex-start;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+
+.descriptions .describe-right .price-discount{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: 20px;
+    margin-left: 30px;
+}
+.descriptions .describe-right .atc-btn button{
+    margin: 20px;
+    background-color: green;
+    width: 300px; 
+    border-radius: 30px;
+    padding: 10px;
+    
+}
