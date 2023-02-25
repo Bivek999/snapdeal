@@ -97,7 +97,6 @@ const Right = () => {
         <div
           onClick={() => {
             setSelect(data);
-            // navigate("/desc");
           }}
           key={data.id}
         >
