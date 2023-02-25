@@ -6,6 +6,8 @@ const ContextProvider = (props) => {
   const [active, setActive] = useState([]);
   const [search, setSearch] = useState("");
   const [select, setSelect] = useState("");
+  const [open, setOpen] = React.useState(false);
+  const [isUserLogin,setIsUserLogin]=useState(false);
   
   return (
     <ContextData.Provider
@@ -15,6 +17,14 @@ const ContextProvider = (props) => {
         active,
         search,
         select,
+        open,
+        isUserLogin,
+        setIsUserLogin:(data)=>{
+          setIsUserLogin(data)
+        },
+        setOpen:(data)=>{
+          setOpen(data);
+        },
         setAllProducts: (data) => {
           setProducts(data);
         },

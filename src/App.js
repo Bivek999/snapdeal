@@ -8,6 +8,8 @@ import ContextData from "./context/product-data";
 import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import Description from "./component/Description";
 import Checkout from "./checkOut/Checkout";
+import Cart from "./cart/Cart";
+import Login from "./component/Login";
 
 function App() {
   const { setAllProducts, setCategories, setActive, allProducts } =
@@ -21,6 +23,7 @@ function App() {
 
       setAllProducts(data["-NOEg2M66-9biUcVftr5"]);
       setCategories(data["-NOir0HKsESo6Ix-AHjt"]);
+      setActive(data["-NOir0HKsESo6Ix-AHjt"][0])
     }
     getData();
   }, []);
@@ -29,10 +32,12 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <NavBar />
-        <Searchbar />        
+        <Searchbar />
         <Routes>
           <Route path="/" element={<Main />} />
+          <Route path="/login" element={<Login/>} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>
     </div>

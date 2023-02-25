@@ -6,9 +6,6 @@ import Card from "react-bootstrap/Card";
 import "../style/right.css";
 import { useNavigate } from "react-router-dom";
 
-
-
-
 const Right = () => {
   const { allProducts, active, search, setSelect } = useContext(ContextData);
   const [array, setArray] = useState([]);
@@ -24,112 +21,131 @@ const Right = () => {
     return product;
   }
 
-
   function handlePageClick(e) {
     setPage(e.selected);
   }
 
-
   let arr = active.data?.map((data) => {
-
     return (
       <>
-             <div onClick={()=>{
-              setSelect(data)
-              // navigate("/desc");
-            }}>
-            <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={data.thumbnail} className="product-image" />
+        <div
+          onClick={() => {
+            setSelect(data);
+            // navigate("/desc");
+          }}
+          key={data.id}
+        >
+          <Card style={{ width: "18rem" }}>
+            <Card.Img
+              variant="top"
+              src={data.thumbnail}
+              className="product-image"
+            />
             <Card.Body>
               <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-              {data.description}
-              </Card.Text>
+              <Card.Text>{data.description}</Card.Text>
             </Card.Body>
           </Card>
-          </div>
+        </div>
       </>
     );
   });
 
-  
-  let srch=allProducts.filter((data)=>{
-
-     return data.title.toLowerCase().includes(search)||data.description.toLowerCase().includes(search);
-  }).map((data)=>{
-    return (
-      <>
-              <div onClick={()=>{
-              setSelect(data)
+  let srch = allProducts
+    .filter((data) => {
+      return (
+        data.title.toLowerCase().includes(search) ||
+        data.description.toLowerCase().includes(search)
+      );
+    })
+    .map((data) => {
+      return (
+        <>
+          <div
+            onClick={() => {
+              setSelect(data);
               // navigate("/desc");
-            }}>
-            <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={data.thumbnail} className="product-image" />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-              {data.description}
-              </Card.Text>
-            </Card.Body>
-          </Card>
+            }}
+            key={data.id}
+          >
+            <Card style={{ width: "18rem" }}>
+              <Card.Img
+                variant="top"
+                src={data.thumbnail}
+                className="product-image"
+              />
+              <Card.Body>
+                <Card.Title>Card Title</Card.Title>
+                <Card.Text>{data.description}</Card.Text>
+              </Card.Body>
+            </Card>
           </div>
-      </>
-    );
-  });
+        </>
+      );
+    });
 
+  useEffect(() => {
+    const setarr = () => {
+      setArray(paginate(allProducts));
+    };
+    setarr();
+  }, [active]);
 
-useEffect(()=>{
-  const setarr=()=>{
-    setArray(paginate(allProducts));
-  }
-  setarr();
-},[active])
-
-  let all=array[page]?.map((data)=>{
+  let all = array[page]?.map((data) => {
     return (
       <>
-            <div onClick={()=>{
-              setSelect(data)
-              // navigate("/desc");
-            }}>
-            <Card style={{ width: '18rem' }} className="card">
-            <Card.Img variant="top" className="product-image" src={data.thumbnail} />
+        <div
+          onClick={() => {
+            setSelect(data);
+            // navigate("/desc");
+          }}
+          key={data.id}
+        >
+          <Card style={{ width: "18rem" }} className="card">
+            <Card.Img
+              variant="top"
+              className="product-image"
+              src={data.thumbnail}
+            />
             <Card.Body>
               <Card.Title>{}</Card.Title>
-              <Card.Text>
-              {data.description}
-              </Card.Text>
+              <Card.Text>{data.description}</Card.Text>
             </Card.Body>
           </Card>
-          </div>
+        </div>
       </>
     );
   });
-
 
   return (
     <div className="right-side">
-      <div className="paste-pro">{search?srch:active.data?arr:all?all:<></>}</div>
-      <div style={{marginTop:"30px"}} >
-          {!active.data?<ReactPaginate
-          previousLabel="previous"
-          nextLabel="next"
-          breakLabel="..."
-          breakClassName="page-item"
-          breakLinkClassName="page-link"
-          pageCount={array.length}
-          pageRangeDisplayed={4}
-          marginPagesDisplayed={2}
-          onPageChange={handlePageClick}
-          containerClassName="pagination justify-content-center"
-          pageClassName="page-item"
-          pageLinkClassName="page-link"
-          previousClassName="page-item"
-          previousLinkClassName="page-link"
-          nextClassName="page-item"
-          nextLinkClassName="page-link"
-          activeClassName="active"
-        />:<></>}
+      <div className="paste-pro">
+        {search ? srch : active.data ? arr : all ? all : <></>}
+      </div>
+      <div style={{ marginTop: "30px" }}>
+        {!active.data ? (
+          <ReactPaginate
+            previousLabel="previous"
+            nextLabel="next"
+            breakLabel="..."
+            breakClassName="page-item"
+            breakLinkClassName="page-link"
+            pageCount={array.length}
+            pageRangeDisplayed={4}
+            marginPagesDisplayed={2}
+            onPageChange={handlePageClick}
+            containerClassName="pagination justify-content-center"
+            pageClassName="page-item"
+            pageLinkClassName="page-link"
+            previousClassName="page-item"
+            previousLinkClassName="page-link"
+            nextClassName="page-item"
+            nextLinkClassName="page-link"
+            activeClassName="active"
+          />
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );
